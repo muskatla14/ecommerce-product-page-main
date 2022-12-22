@@ -16,8 +16,8 @@
   </head>
   <body>
     <header class="header">
-      <nav class="navbar">
-        <div class="navbar-container">
+      <div class="header-container">
+        <nav class="navbar">
           <div class="navbar-logo">
             <img src="./images/logo.svg" alt="" />
           </div>
@@ -34,21 +34,29 @@
             <img src="images/icon-cart.svg" alt="" />
             <img src="images/image-avatar.png" alt="" />
           </div>
-        </div>
-      </nav>
+        </nav>
+      </div>
     </header>
 
     <main class="main">
       <div class="main-container">
-        <div class="main-galery">
+        <div class="main-gallery">
           <div class="large-img">
             <img src="./images/image-product-1.jpg" alt="" />
           </div>
           <div class="thumbnail-img">
-            <img src="./images/image-product-1-thumbnail.jpg" alt="" />
-            <img src="./images/image-product-2-thumbnail.jpg" alt="" />
-            <img src="./images/image-product-3-thumbnail.jpg" alt="" />
-            <img src="./images/image-product-4-thumbnail.jpg" alt="" />
+            <div class="small-img">
+              <img src="./images/image-product-1-thumbnail.jpg" alt="" />
+            </div>
+            <div class="small-img">
+              <img src="./images/image-product-2-thumbnail.jpg" alt="" />
+            </div>
+            <div class="small-img">
+              <img src="./images/image-product-3-thumbnail.jpg" alt="" />
+            </div>
+            <div class="small-img">
+              <img src="./images/image-product-4-thumbnail.jpg" alt="" />
+            </div>
           </div>
         </div>
         <div class="main-product">
@@ -66,19 +74,23 @@
             <span class="discount">50%</span>
             <p class="old-price">$250.00</p>
           </div>
-          <div class="select-quantity">
-            <button class="add">+</button>
-            <p class="quantity">0</p>
-            <button class="remove">-</button>
-          </div>
-          <div class="add-to-cart">
-            <button class="btn-primary">Add to cart</button>
+          <div class="add-quantity">
+            <div class="select-quantity">
+              <button class="add">-</button>
+              <span class="quantity">0</span>
+              <button class="remove">+</button>
+            </div>
+            <div class="add-to-cart">
+              <button class="btn-primary">
+                <img src="images/icon-cart-white.svg" alt="" />Add to cart
+              </button>
+            </div>
           </div>
         </div>
       </div>
     </main>
 
-    <footer>
+    <footer class="footer">
       <div class="attribution">
         Challenge by
         <a href="https://www.frontendmentor.io?ref=challenge" target="_blank"

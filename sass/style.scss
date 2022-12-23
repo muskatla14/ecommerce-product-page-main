@@ -19,6 +19,16 @@ img {
   max-width: 100%;
 }
 
+.shade {
+  width: 100%;
+  height: 100%;
+  background: rgba(0,0,0,0.5);
+  position: absolute;
+  top: 0;
+  left: 0;
+}
+
+
   body {
     font-family: $font-stack;
     display: grid;
@@ -62,6 +72,8 @@ img {
 
             a:hover {
               font-weight: 700;
+              border-bottom: 4px solid $orange;
+              padding-bottom: 44px;
             }
           }
         }
@@ -70,6 +82,10 @@ img {
       .user {
         display: flex;
         align-items: center;
+
+        img:hover {
+          cursor: pointer;
+        }
         
         img:first-child {
           width: 30px;
@@ -110,13 +126,20 @@ img {
           display: flex;
           padding: 0 50px;
           gap: 20px;
+          
 
           > div > img {
             border-radius: 10%;
+            cursor: pointer;
+            transition: 0.2s;
           }
+
+          > div > img:hover {
+            filter: opacity(0.20);
           }
-        }
+        }        
       }
+    }
 
       .main-product { 
         flex: 1 1 50%;

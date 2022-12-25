@@ -1,9 +1,23 @@
 @import 'config';
+@import 'lightbox';
 
 * {
     box-sizing: border-box;
     margin: 0;
     padding: 0;
+}
+
+body {
+  font-family: $font-stack;
+  display: grid;
+  grid-template-areas: 
+  "header header" 
+  "main main"
+  "footer footer"
+  ;
+  grid-template-rows: 15vh 1fr 10vh;
+  grid-template-columns: repeat(2, 1fr);
+  
 }
 
 ul {
@@ -19,6 +33,16 @@ img {
   max-width: 100%;
 }
 
+
+.lightbox {
+  width: 30%;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+}
+
+
 .shade {
   width: 100%;
   height: 100%;
@@ -28,19 +52,19 @@ img {
   left: 0;
 }
 
+.overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  background-color: black;
+  width: 100%;
+  height: 100%;
+  z-index: 1;
+  opacity: 0.5;
+}
 
-  body {
-    font-family: $font-stack;
-    display: grid;
-    grid-template-areas: 
-    "header header" 
-    "main main"
-    "footer footer"
-    ;
-    grid-template-rows: 15vh 1fr 10vh;
-    grid-template-columns: repeat(2, 1fr);
-    
-  }
+
+
 
   .header {
     grid-area: header;
@@ -116,6 +140,7 @@ img {
         flex-direction: column;
          .large-img {
           padding: 20px 50px;
+          cursor: pointer;
             img {
               border-radius: 5%;
             }
@@ -126,12 +151,16 @@ img {
           display: flex;
           padding: 0 50px;
           gap: 20px;
+
+          .border  {
+            border: 4px solid $orange;
+          }
           
 
           > div > img {
             border-radius: 10%;
             cursor: pointer;
-            transition: 0.2s;
+            // transition: 0.2s;
           }
 
           > div > img:hover {

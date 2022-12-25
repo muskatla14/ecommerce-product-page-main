@@ -1,0 +1,55 @@
+.lightbox {
+    width: 30%;
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+    align-items: center;
+    justify-content: center;
+
+    .large-img {
+        border-radius: 5%;
+    }
+}
+
+
+.thumbnailsContainer {
+    display: flex;
+    justify-content: center;
+    gap: 20px;
+    padding: 0 50px;
+
+    img {
+        flex: 1;
+        border-radius: 5%;
+        width: 100%;
+        height: auto;
+    }
+
+  
+}
+
+.closeBtn {
+    align-self: flex-end;
+    cursor: pointer;
+}
+
+.nextBtn, .previousBtn {
+    position: absolute;
+    width: 30px;
+    height: 30px;
+    background-color: $white;
+    padding: 10px;
+    border-radius: 50%;
+    cursor: pointer;
+}
+
+.previousBtn {
+    left: -14px;
+    top: 240px;
+
+}
+
+.nextBtn {
+    right: -14px;
+    top: 240px;
+}

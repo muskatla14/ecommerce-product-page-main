@@ -15,6 +15,33 @@
     <title>Frontend Mentor | E-commerce product page</title>
   </head>
   <body>
+    <!-- Modal Cart -->
+
+    <div class="modal" id="modal">
+      <div class="modal-header">
+        <h4>Cart</h4>
+      </div>
+
+      <div class="modal-main">
+        <!-- BASKET FILLED -->
+        <div class="modal-img">
+          <img src="/images/image-product-1-thumbnail.jpg" alt="" />
+        </div>
+        <div class="product">
+          <div class="product-info">
+            <p>Fall Limited Edition Sneakers</p>
+            <p class="total">$125.00 x 3 <strong>$375.00</strong></p>
+          </div>
+        </div>
+        <div class="delete"><img src="/images/icon-delete.svg" alt="" /></div>
+      </div>
+
+      <div class="checkout">
+        <button class="btn-primary">Checkout</button>
+      </div>
+      <!-- BASKET EMPTY -->
+      <!-- <p>Your Cart is Empty</p> -->
+    </div>
     <header class="header">
       <div class="header-container">
         <nav class="navbar">
@@ -31,7 +58,7 @@
             </ul>
           </div>
           <div class="user">
-            <img src="images/icon-cart.svg" alt="" />
+            <img class="cart-icon-header" src="images/icon-cart.svg" alt="" />
             <img src="images/image-avatar.png" alt="" />
           </div>
         </nav>
@@ -45,29 +72,33 @@
             <img id="defaultImage" src="./images/image-product-1.jpg" alt="" />
           </div>
           <div class="thumbnail-img">
-            <div class="small-img">
+            <div class="small-img" tabindex="1">
               <img
                 class="thumbnail1"
                 src="./images/image-product-1-thumbnail.jpg"
                 alt=""
+                tabindex="1"
               />
             </div>
-            <div class="small-img">
+            <div class="small-img" tabindex="1">
               <img
+                tabindex="1"
                 class="thumbnail2"
                 src="./images/image-product-2-thumbnail.jpg"
                 alt=""
               />
             </div>
-            <div class="small-img">
+            <div class="small-img" tabindex="1">
               <img
+                tabindex="1"
                 class="thumbnail3"
                 src="./images/image-product-3-thumbnail.jpg"
                 alt=""
               />
             </div>
-            <div class="small-img">
+            <div class="small-img" tabindex="1">
               <img
+                tabindex="1"
                 class="thumbnail3"
                 src="./images/image-product-4-thumbnail.jpg"
                 alt=""
@@ -92,9 +123,10 @@
           </div>
           <div class="add-quantity">
             <div class="select-quantity">
-              <button class="add">-</button>
-              <span class="quantity">0</span>
-              <button class="remove">+</button>
+              <button class="decrease">-</button>
+              <span class="quantity" type="number">0</span>
+              <!-- <input type="number" value="0" readonly /> -->
+              <button class="increase">+</button>
             </div>
             <div class="add-to-cart">
               <button class="btn-primary">
@@ -114,6 +146,7 @@
         >. Coded by <a href="https://github.com/muskatla14">Marko Robovic</a>.
       </div>
     </footer>
+
     <script src="script/app.js"></script>
   </body>
 </html>

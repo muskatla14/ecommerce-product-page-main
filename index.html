@@ -24,23 +24,25 @@
 
       <div class="modal-main">
         <!-- BASKET FILLED -->
-        <div class="modal-img">
-          <img src="/images/image-product-1-thumbnail.jpg" alt="" />
-        </div>
-        <div class="product">
-          <div class="product-info">
-            <p>Fall Limited Edition Sneakers</p>
-            <p class="total">$125.00 x 3 <strong>$375.00</strong></p>
+        <!-- <div class="modal-img">
+            <img src="/images/image-product-1-thumbnail.jpg" alt="" />
           </div>
+          <div class="product">
+            <div class="product-info">
+              <p>Fall Limited Edition Sneakers</p>
+              <p class="total">$125.00 x 3 <strong>$375.00</strong></p>
+            </div>
+          </div>
+          <div class="delete"><img src="/images/icon-delete.svg" alt="" /></div>
         </div>
-        <div class="delete"><img src="/images/icon-delete.svg" alt="" /></div>
-      </div>
 
-      <div class="checkout">
-        <button class="btn-primary">Checkout</button>
+        <div class="checkout">
+          <button class="btn-primary">Checkout</button> -->
+        <!-- BASKET EMPTY -->
+        <div class="empty-msg">
+          <p>Your Cart is Empty</p>
+        </div>
       </div>
-      <!-- BASKET EMPTY -->
-      <!-- <p>Your Cart is Empty</p> -->
     </div>
     <header class="header">
       <div class="header-container">
@@ -109,7 +111,7 @@
         <div class="main-product">
           <div class="main-product-about">
             <h4>Sneaker Company</h4>
-            <h1>Fall Limited Edition Sneakers</h1>
+            <h1 class="main-product-name">Fall Limited Edition Sneakers</h1>
             <p>
               These low-profile sneakers are your perfect casual wear companion.
               Featuring a durable rubber outer sole, they’ll withstand
@@ -129,7 +131,7 @@
               <button class="increase">+</button>
             </div>
             <div class="add-to-cart">
-              <button class="btn-primary">
+              <button id="addBtn" class="btn-primary">
                 <img src="images/icon-cart-white.svg" alt="" />Add to cart
               </button>
             </div>

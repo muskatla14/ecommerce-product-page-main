@@ -10,6 +10,9 @@ const increaseBtn = document.querySelector('.increase');
 const decreaseBtn = document.querySelector('.decrease');
 const quantity = document.querySelector('.quantity');
 let current = parseInt(quantity.innerHTML);
+const addButton = document.getElementById('addBtn');
+
+
 
 
 // Cart
@@ -19,7 +22,6 @@ cartIconHeader.addEventListener('click', () => {
 
 
   document.addEventListener('click', (e) => {
-    console.log(e.target.parentElement);
     if(!e.target.parentElement.classList.contains('modal') && e.target != cartIconHeader) {
         modal.style.display = 'none';
     }
@@ -44,16 +46,76 @@ decreaseBtn.addEventListener('click', () => {
 });
 
 
-function addItemtoCart(image, price, title) {
+function addItemToCart() {
+
+
+    const currentPrice = parseInt((price.textContent).substring(1));
+    const currentQuantity = parseInt(quantity.textContent);
+    const total = currentPrice * currentQuantity;
+    const modalMain = document.querySelector('.modal-main');
+
+    if(currentQuantity !== 0) {
+        const imgDiv = document.createElement('div');
+        imgDiv.classList.add('modal-img')
+        const img = document.createElement('img');
+        img.src = 'images/image-product-1-thumbnail.jpg';
+        imgDiv.appendChild(img);
+        modalMain.appendChild(imgDiv);
     
+        const divProduct = document.createElement('div');
+        divProduct.classList.add('product');
+        const divProductInfo = document.createElement('div');
+        divProductInfo.classList.add('product-info');
+        modalMain.appendChild(divProduct);
+        divProduct.appendChild(divProductInfo);
+        const modalProductName = document.createElement('p');
+        modalProductName.innerHTML = document.querySelector('.main-product-name').textContent;
+        divProductInfo.appendChild(modalProductName);
+        const pTotal = document.createElement('p');
+        pTotal.classList.add('total');
+        pTotal.innerHTML = `$${currentPrice.toFixed(2)}  x  ${currentQuantity}`;
+        const totalModal = document.createElement('strong');
+        totalModal.innerHTML = ` $${total.toFixed(2)}`;
+        pTotal.appendChild(totalModal);
+        divProductInfo.appendChild(pTotal);
+    
+        const divDeleteItemModal = document.createElement('div');
+        divDeleteItemModal.classList.add('delete');
+        modalMain.appendChild(divDeleteItemModal);
+        const deleteItemImg = document.createElement('img');
+        deleteItemImg.src = 'images/icon-delete.svg';
+        divDeleteItemModal.appendChild(deleteItemImg);
+    
+        console.log(deleteItemImg)
+        const divCheckout = document.createElement('div');
+        divCheckout.classList.add('checkout');
+        const checkoutButton = document.createElement('button');
+        checkoutButton.innerHTML = 'Checkout';
+        checkoutButton.classList.add('btn-primary');
+        divCheckout.appendChild(checkoutButton);
+        modal.appendChild(divCheckout);
+
+        document.querySelector('.empty-msg').style.display = 'none';
+    } else {
+        modalMain.classList.remove('.modal-main');
+        modalMain.classList.add('empty');
+        document.querySelector('.empty-msg').style.display = 'block';
+    }
+    
+        // modalMain.classList.add('empty');
+        // modalMain.style.height = '400px';
+        // const emptyCartMsg = document.createElement('p');
+        // emptyCartMsg.innerHTML = 'Your Cart is Empty'
+        // modalMain.appendChild(emptyCartMsg);
+        
 }
 
 
-
+addButton.addEventListener('click', addItemToCart)
 
 function displayLargeImage() {
     smallImages.forEach((element, index) => {
-        element.addEventListener('click', () => {
+        element.addEventListener('click', () => {   
             largeImage.src = `images/image-product-${index + 1}.jpg`
         })
         element.parentElement.addEventListener('focus', (event) => {

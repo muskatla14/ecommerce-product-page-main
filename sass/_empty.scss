@@ -1,0 +1,11 @@
+.empty {
+    flex: 7;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-weight: 700;
+    
+    p {
+        color: $dark-grayish-blue;
+    }
+}

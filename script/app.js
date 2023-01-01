@@ -46,15 +46,32 @@ decreaseBtn.addEventListener('click', () => {
 });
 
 
+function displayQuantityOnCart(quant){
+    const cart = document.querySelector('.cart-img-div');
+    cart.style.position = 'relative';
+    const smallNum = document.createElement('small');
+    smallNum.classList.add('small-icon');
+    cart.appendChild(smallNum);
+    smallNum.position = 'absolute';
+    smallNum.innerHTML = quant;
+
+    console.log(quant)
+
+}
+
+
 function addItemToCart() {
 
 
     const currentPrice = parseInt((price.textContent).substring(1));
     const currentQuantity = parseInt(quantity.textContent);
     const total = currentPrice * currentQuantity;
-    const modalMain = document.querySelector('.modal-main');
 
     if(currentQuantity !== 0) {
+        document.querySelector('.empty').style.display = 'none';
+        const modalMain = document.createElement('div');
+        modalMain.classList.add('modal-main');
+        modal.appendChild(modalMain);
         const imgDiv = document.createElement('div');
         imgDiv.classList.add('modal-img')
         const img = document.createElement('img');
@@ -82,6 +99,7 @@ function addItemToCart() {
         const divDeleteItemModal = document.createElement('div');
         divDeleteItemModal.classList.add('delete');
         modalMain.appendChild(divDeleteItemModal);
+        modalMain.classList.remove('empty');
         const deleteItemImg = document.createElement('img');
         deleteItemImg.src = 'images/icon-delete.svg';
         divDeleteItemModal.appendChild(deleteItemImg);
@@ -95,19 +113,10 @@ function addItemToCart() {
         divCheckout.appendChild(checkoutButton);
         modal.appendChild(divCheckout);
 
-        document.querySelector('.empty-msg').style.display = 'none';
-    } else {
-        modalMain.classList.remove('.modal-main');
-        modalMain.classList.add('empty');
-        document.querySelector('.empty-msg').style.display = 'block';
-    }
-    
-        // modalMain.classList.add('empty');
-        // modalMain.style.height = '400px';
-        // const emptyCartMsg = document.createElement('p');
-        // emptyCartMsg.innerHTML = 'Your Cart is Empty'
-        // modalMain.appendChild(emptyCartMsg);
-        
+        // document.querySelector('.empty-msg').style.display = 'none';
+
+        displayQuantityOnCart(currentQuantity);
+    } 
 }
 
 

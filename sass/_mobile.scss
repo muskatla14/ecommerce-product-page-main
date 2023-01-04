@@ -1,0 +1,174 @@
+@media(max-width: 700px) {
+
+    body {
+        // min-height: fit-content;
+        display: flex;
+        flex-direction: column;
+
+
+        .modal {
+            border-radius: 5px;
+            // right: 0;
+            // width: -webkit-fill-available;
+        }
+        header {
+            .header-container {
+                max-width: 90%;
+                margin: 0 auto;
+                padding: 15px 0;
+                border-bottom: none;
+    
+                .navbar {
+                    column-gap: 1rem;
+            
+                    &-logo {
+                        flex: 2;
+                    }
+                    .user {
+                        .cart-img-div {
+                            img {
+                              width: 20px;
+                            }
+
+                            .small-icon {
+                                bottom: 13px;
+                                left: 11px;
+                                padding: 2px 7px;
+                            }
+                        }
+    
+                        .user-img {
+                            img {
+                          width: 25px;
+                            }
+                        }
+                    }
+                    .navbar-menu {
+                        display: none;
+                    }
+
+                    .burger {
+                        display: block!important;
+                    }
+                }
+            }
+        }
+
+    .main {
+        .main-container {
+            flex-direction: column;
+            padding: 0px;
+            width: 100%;
+            gap: 0;
+
+            .large-img {
+                padding: 0;
+                
+                #defaultImage {
+                    display: none;
+                }
+
+                #defaultImageMobile {
+                    display: block !important;
+                    border-radius: 0;
+                }
+
+
+
+                .previousBtnMobile {
+                    position: absolute;
+                    left: 17px;
+                    border-radius: 50%;
+                    background-color: $white;
+                    top: 35%;
+                    padding: 7px;
+                    display: block !important;
+                }
+
+                .nextBtnMobile {
+                    position: absolute;
+                    right: 15px;
+                    border-radius: 50%;
+                    background-color: $white;
+                    top: 35%;
+                    padding: 7px;
+                    display: block !important;
+                }
+
+                #defaultImage {
+                    display: none;
+                }
+
+                #defaultImageMobile {
+                    display: block !important;
+                }
+            }
+        
+            .thumbnail-img {
+                display: none;
+            }
+        } 
+        .main-product {
+            padding: 0 15px;
+
+            .main-product-about {
+                padding: 20px 0;
+                
+                h1 {
+                    padding: 16px 0;
+                }
+            }
+
+            .main-product-price {
+                display: flex;
+                justify-content: space-between;
+
+                .discount {
+                    margin-right: 100px;
+                }
+
+                .old-price {
+                    margin-top: 5px;
+                }
+            }
+            .add-quantity {
+                flex-direction: column;
+                gap: 0;
+                align-items: stretch;
+
+                .select-quantity {
+                    margin: 1rem 0;
+                    .quantity {
+                        flex: 2;
+                        text-align: center;
+                    }
+                }
+            }
+        }
+    }
+
+    .footer {
+        margin-top: 20px;
+    }
+}
+  
+ 
+
+
+// main-container {
+//     padding: 0px;
+//     &-gallery {
+//         thumbnail-img {
+//             display: none;
+//         }
+//     }
+// }
+
+// .burger {
+//     display: block !important; 
+// }
+
+// .navbar-menu {
+//     display: none;
+  
+}

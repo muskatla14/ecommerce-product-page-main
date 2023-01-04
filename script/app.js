@@ -1,32 +1,27 @@
 const cartIconHeader = document.querySelector('.cart-icon-header');
 const modal = document.querySelector('.modal');
-
-const largeImage = document.querySelector('.large-img img');
+const largeImage = document.querySelector('#defaultImage');
 const smallImages = document.querySelectorAll('.small-img img');
 const body = document.querySelector('body');
-
 const price = document.querySelector('.price');
 const increaseBtn = document.querySelector('.increase');
 const decreaseBtn = document.querySelector('.decrease');
 const quantity = document.querySelector('.quantity');
 let current = parseInt(quantity.innerHTML);
 const addButton = document.getElementById('addBtn');
-
-
-
+const previousBtnMobile = document.querySelector('.previousBtnMobile');
+const nextBtnMobile = document.querySelector('.nextBtnMobile');
 
 // Cart
 cartIconHeader.addEventListener('click', () => {
     modal.style.display = 'flex';
 })
 
-
   document.addEventListener('click', (e) => {
     if(!e.target.parentElement.classList.contains('modal') && e.target != cartIconHeader) {
         modal.style.display = 'none';
     }
   })
-
 
 
 // Add quantity
@@ -37,14 +32,11 @@ increaseBtn.addEventListener('click', () => {
 
 decreaseBtn.addEventListener('click', () => {
     current--;
-
     if (current < 0) {
         current = 0
     }
-
     quantity.innerHTML = current;
 });
-
 
 function displayQuantityOnCart(quant){
     const cart = document.querySelector('.cart-img-div');
@@ -54,15 +46,9 @@ function displayQuantityOnCart(quant){
     cart.appendChild(smallNum);
     smallNum.position = 'absolute';
     smallNum.innerHTML = quant;
-
-    console.log(quant)
-
 }
 
-
 function addItemToCart() {
-
-
     const currentPrice = parseInt((price.textContent).substring(1));
     const currentQuantity = parseInt(quantity.textContent);
     const total = currentPrice * currentQuantity;
@@ -104,7 +90,6 @@ function addItemToCart() {
         deleteItemImg.src = 'images/icon-delete.svg';
         divDeleteItemModal.appendChild(deleteItemImg);
     
-        console.log(deleteItemImg)
         const divCheckout = document.createElement('div');
         divCheckout.classList.add('checkout');
         const checkoutButton = document.createElement('button');
@@ -112,15 +97,12 @@ function addItemToCart() {
         checkoutButton.classList.add('btn-primary');
         divCheckout.appendChild(checkoutButton);
         modal.appendChild(divCheckout);
-
-        // document.querySelector('.empty-msg').style.display = 'none';
-
         displayQuantityOnCart(currentQuantity);
     } 
 }
 
 
-addButton.addEventListener('click', addItemToCart)
+addButton.addEventListener('click', addItemToCart);
 
 function displayLargeImage() {
     smallImages.forEach((element, index) => {
@@ -144,23 +126,17 @@ function displayLargeImage() {
 function displayLightboxGallery() {
     // Create overlay div
     const lightboxContainer = document.createElement('div');
-
     // Append overlay to body
     body.appendChild(lightboxContainer);
-
     // Add class to overlay div
     lightboxContainer.classList.add('overlay');
-
     //  Create lightbox gallery div
     const lightboxGallery = document.createElement('div');
-
     // Append gallery to body div
     body.appendChild(lightboxGallery);
-
     // Add class to gallery div
     lightboxGallery.classList.add('lightbox');
     lightboxGallery.style.zIndex = 1;
-
     // Create close btn
     const closeBtn = document.createElement('img');
     closeBtn.src = 'images/icon-close.svg';
@@ -170,25 +146,17 @@ function displayLightboxGallery() {
         lightboxContainer.style.display = 'none';
         lightboxGallery.style.display = 'none';
     })
-
     // Create large image element
     const largeImageLightBox = document.createElement('img');
     largeImageLightBox.src = 'images/image-product-1.jpg';
     largeImageLightBox.classList.add('large-img');
-
-
     // Append large image to gallery
     lightboxGallery.appendChild(largeImageLightBox);
-
-
     const thumbnailsContainer = document.createElement('div');
     thumbnailsContainer.classList.add('thumbnailsContainer');
-
     lightboxGallery.appendChild(thumbnailsContainer);
 
 
-
-    // Version2
     const thumbnail1 = document.createElement('img');
     thumbnail1.src = 'images/image-product-1-thumbnail.jpg';
     const thumbnail2 = document.createElement('img');
@@ -198,10 +166,7 @@ function displayLightboxGallery() {
     const thumbnail4 = document.createElement('img');
     thumbnail4.src = 'images/image-product-4-thumbnail.jpg';
 
-
     const thumbnailsArr = [thumbnail1, thumbnail2, thumbnail3, thumbnail4];
-
-    console.log(thumbnailsArr);
 
     thumbnailsArr.forEach((element, index) => {
         element.style.cursor = 'pointer';
@@ -216,10 +181,8 @@ function displayLightboxGallery() {
             console.log(event.target)
             event.target.style.borderRadius = '10px';
             event.target.style.border = '4px solid hsl(26, 100%, 55%)';
-            // event.target.style.filter = 'opacity(0.20)'; 
         }, true)
         element.parentElement.addEventListener('blur', (event) => {
-            // event.target.style.filter = 'none';
             event.target.style.border = 'none';
         }, true)
     });
@@ -234,9 +197,7 @@ function displayLightboxGallery() {
     lightboxGallery.appendChild(next);
     lightboxGallery.appendChild(previous);
 
-
-
-    // Slider
+    // Slider Desktop
     const slideImages = ['image-product-1.jpg', 'image-product-2.jpg', 'image-product-3.jpg', 'image-product-4.jpg'];
 
     let i = 0;
@@ -250,19 +211,51 @@ function displayLightboxGallery() {
     function nextImg() {
         if (i >= slideImages.length - 1) i = -1;
         i++;
-
         return setImg();
     }
 
-
     function setImg() {
-        return largeImageLightBox.setAttribute('src', 'images/' + slideImages[i])
+        return largeImageLightBox.setAttribute('src', 'images/' + slideImages[i]);
+        
+    }
+
+
+    // Slider Mobile
+    function prevMobile() {
+        if (i <= 0) i = slideImages.length;
+        i--;
+        return setImgMobile();
+    }
+
+    function nextImgMobile() {
+        if (i >= slideImages.length - 1) i = -1;
+        i++;
+        return setImgMobile();
+    }
+
+    function setImgMobile() {
+        return document.querySelector('#defaultImageMobile').setAttribute('src', 'images/' + slideImages[i]);
+        
     }
 
     previous.addEventListener('click', prev);
     next.addEventListener('click', nextImg);
+    previousBtnMobile.addEventListener('click', prevMobile);
+    nextBtnMobile.addEventListener('click', nextImgMobile);
+    
 }
-
 
 displayLargeImage();
 largeImage.addEventListener('click', displayLightboxGallery)
+
+
+
+function getDeviceWidth() {
+    if (typeof (window.innerWidth) == '400') {
+        displayLightboxGallery();
+    }
+       
+}
+
+
+

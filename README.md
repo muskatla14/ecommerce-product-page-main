@@ -36,7 +36,7 @@ Users should be able to:
 ### Links
 
 - Solution URL: [https://github.com/muskatla14/ecommerce-product-page-main](https://your-solution-url.com)
-- Live Site URL: [[Add live site URL here](https://muskatla14.github.io/ecommerce-product-page-main/)](https://your-live-site-url.com)
+- Live Site URL: [https://muskatla14.github.io/ecommerce-product-page-main/](https://your-live-site-url.com)
 
 ## My process
 

@@ -44,7 +44,44 @@
                         }
                     }
                     .navbar-menu {
-                        display: none;
+
+                        .nav {
+                            
+                            position: fixed;
+                            left: -100%;
+                            top: 0;
+                            gap: 20px;
+                            flex-direction: column;
+                            background-color: $white;
+                            width: 70%;
+                            transition: 0.3s;
+                            height: 100vh;
+                            padding: 20px;
+                        
+                            
+
+                            li {
+                                color: $very-dark-blue;
+                                font-weight: 700;
+                               
+                                a {
+                                    border: none;
+                                }
+                            }
+
+                            .closeBtn {
+                                align-self: flex-start;
+                                order: -1 !important;
+                                margin-bottom: 20px;
+                            }
+                        }
+
+                        .nav.active {
+                            left: 0;
+                            z-index: 1;
+
+                        }
+                        
                     }
 
                     .burger {
@@ -80,7 +117,7 @@
                     left: 17px;
                     border-radius: 50%;
                     background-color: $white;
-                    top: 35%;
+                    top: 28%;
                     padding: 7px;
                     display: block !important;
                 }
@@ -90,7 +127,7 @@
                     right: 15px;
                     border-radius: 50%;
                     background-color: $white;
-                    top: 35%;
+                    top: 28%;
                     padding: 7px;
                     display: block !important;
                 }

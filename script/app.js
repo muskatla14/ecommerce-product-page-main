@@ -12,6 +12,7 @@ const addButton = document.getElementById('addBtn');
 const previousBtnMobile = document.querySelector('.previousBtnMobile');
 const nextBtnMobile = document.querySelector('.nextBtnMobile');
 
+
 // Cart
 cartIconHeader.addEventListener('click', () => {
     modal.style.display = 'flex';
@@ -64,7 +65,6 @@ function addItemToCart() {
         img.src = 'images/image-product-1-thumbnail.jpg';
         imgDiv.appendChild(img);
         modalMain.appendChild(imgDiv);
-    
         const divProduct = document.createElement('div');
         divProduct.classList.add('product');
         const divProductInfo = document.createElement('div');
@@ -78,10 +78,9 @@ function addItemToCart() {
         pTotal.classList.add('total');
         pTotal.innerHTML = `$${currentPrice.toFixed(2)}  x  ${currentQuantity}`;
         const totalModal = document.createElement('strong');
-        totalModal.innerHTML = ` $${total.toFixed(2)}`;
+        totalModal.innerText = ` $${total.toFixed(2)}`;
         pTotal.appendChild(totalModal);
         divProductInfo.appendChild(pTotal);
-    
         const divDeleteItemModal = document.createElement('div');
         divDeleteItemModal.classList.add('delete');
         modalMain.appendChild(divDeleteItemModal);
@@ -89,7 +88,6 @@ function addItemToCart() {
         const deleteItemImg = document.createElement('img');
         deleteItemImg.src = 'images/icon-delete.svg';
         divDeleteItemModal.appendChild(deleteItemImg);
-    
         const divCheckout = document.createElement('div');
         divCheckout.classList.add('checkout');
         const checkoutButton = document.createElement('button');
@@ -97,10 +95,21 @@ function addItemToCart() {
         checkoutButton.classList.add('btn-primary');
         divCheckout.appendChild(checkoutButton);
         modal.appendChild(divCheckout);
+
+        if(deleteItemImg) {
+            deleteItemImg.addEventListener('click', function(e) {
+                let trash = e.target;
+                trash.parentElement.parentElement.remove();
+                divCheckout.remove();
+                document.querySelector('.empty').style.display = 'flex';
+                document.querySelector('.small-icon').remove();
+                
+            })
+        }
+
         displayQuantityOnCart(currentQuantity);
     } 
 }
-
 
 addButton.addEventListener('click', addItemToCart);
 
@@ -121,7 +130,6 @@ function displayLargeImage() {
         }, true)
     })
 }
-
 
 function displayLightboxGallery() {
     // Create overlay div
@@ -235,7 +243,7 @@ function displayLightboxGallery() {
 
     function setImgMobile() {
         return document.querySelector('#defaultImageMobile').setAttribute('src', 'images/' + slideImages[i]);
-        
+
     }
 
     previous.addEventListener('click', prev);
@@ -249,13 +257,6 @@ displayLargeImage();
 largeImage.addEventListener('click', displayLightboxGallery)
 
 
-
-function getDeviceWidth() {
-    if (typeof (window.innerWidth) == '400') {
-        displayLightboxGallery();
-    }
-       
-}
 
 
 
